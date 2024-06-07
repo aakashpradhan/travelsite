@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Kashmir Package 1",
+        "description": "Enjoy the beauty of Kashmir with this 5-day package.",
+        "price": 500
+    },
+    {
+        "id": 2,
+        "name": "Kashmir Package 2",
+        "description": "Explore the wonders of Kashmir in this 7-day package.",
+        "price": 700
+    },
+    {
+        "id": 3,
+        "name": "Kashmir Package 3",
+        "description": "Experience the tranquility of Kashmir with our 10-day package.",
+        "price": 1000
+    },
+    {
+        "id": 4,
+        "name": "Kashmir Package 4",
+        "description": "Adventure and relaxation combined in this 14-day package.",
+        "price": 1400
+    },
+    {
+        "id": 5,
+        "name": "Kashmir Package 5",
+        "description": "The ultimate 21-day package to fully immerse in Kashmir.",
+        "price": 2100
+    }
+]
