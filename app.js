@@ -1,23 +1,32 @@
 const express = require('express');
-const app = express();
 const path = require('path');
-const port = 3000;
+const sequelize = require('./config/database'); // Adjust path if necessary
+const indexRoutes = require('./routes/index'); // Adjust path if necessary
+const packagesRoutes = require('./routes/packages'); // Adjust path if necessary
 
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Set view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Middleware
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.render('pages/index');
-})
+// Routes
+app.use('/', indexRoutes);
+app.use('/packages', packagesRoutes);
 
-app.get('/about', (req, res) => {
-    res.render('pages/about');
-})
-
-
-// Start the server
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
+// Start server
+app.listen(port, async () => {
+    console.log(`Server is running on http://localhost:${port}`);
+    try {
+        await sequelize.authenticate();
+        console.log('Database connected successfully.');
+    } catch (error) {
+        console.error('Unable to connect to the database:', error);
+    }
 });
